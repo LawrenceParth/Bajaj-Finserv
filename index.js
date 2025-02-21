@@ -7,17 +7,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-// Root Route
-app.get("/", (req, res) => {
-    res.send("Welcome to the Bajaj Finserv API! Use /bfhl for API requests.");
-});
-
-// GET /bfhl - Hardcoded response
+// ✅ GET /bfhl - Returns operation_code
 app.get("/bfhl", (req, res) => {
     res.status(200).json({ "operation_code": 1 });
 });
 
-// POST /bfhl - Processes JSON input
+// ✅ POST /bfhl - Processes JSON input
 app.post("/bfhl", (req, res) => {
     const { data } = req.body;
     
